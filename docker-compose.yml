@@ -1,0 +1,13 @@
+services:
+  dinaip:
+    image: isma97p/dinaip
+    secrets:
+      - dinaip_passwd
+    environment:
+      - USERNAME=mail
+      - ZONES=domain:zon1,zone2.....
+      
+secrets:
+  dinaip_passwd:
+    file: ./.secrets/dinaip_passwd
+ 
