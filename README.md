@@ -24,3 +24,5 @@
 
 * `USERNAME` (Your Account)
 * `ZONES` (domain:zone1,zone2....)
+
+You can build your own image with the dockfile attached if you dont want to use mine.
