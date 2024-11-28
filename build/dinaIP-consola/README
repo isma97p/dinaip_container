@@ -1,0 +1,38 @@
+dinaIP es un software desarrollado para facilitar el control de zonas de dominios registrados en dinahosting.
+En modo demonio actualiza automaticamente la/s zona/s monitorizada/s a la IP publica que tengamos.
+
+
+REQUERIMIENTOS (para OpenWrt):
+
+- Perl
+- SSL
+- curl (comando, necesario solamente si no se pueden instalar los modulos Crypt::SSLeay de Perl, por defecto no aparecen en OpenWrt)
+
+
+
+INSTALACIÓN (para OpenWrt):
+
+1) update lista de paquetes:
+	# opkg update
+
+2) instalación de los paquetes de perl-base, curl y SSL correspondientes:
+	# opkg install perlbase-base perlbase-essential perlbase-cwd perlbase-b perlbase-xsloader perlbase-bytes perlbase-posix perlbase-autoloader perlbase-fcntl perlbase-tie perlbase-io perlbase-symbol perlbase-selectsaver perlbase-data perlbase-mime perlbase-time perlbase-config perlbase-integer perlbase-getopt perlbase-socket perlbase-dynaloader perlbase-errno perl-www perl-uri perl-html-tagset perl-html-parser perl-www-curl libopenssl openssl-util curl
+
+
+
+HOWTO:
+
+Con el parametro -h se ejecuta la ayuda online:
+
+Uso: dinaIP [OPCIONES] ...
+
+-u	ID en dinahosting
+-p	Clave de tu perfil de dinahosting
+-i 	Arranca el demonio de dinaIP con la configuracion almacenada
+-a	Agrega una zona a monitorizar. Sintaxis: dominio:zona1,zona2...
+-l	Muestra una lista de los dominios pertenecientes a esta cuenta
+-b	Elimina una zona de la monitorizacion. Sintaxis: dominio:zona_a_eliminar
+-d	Detiene el demonio de dinaIP
+-h	Despliega esta ayuda
+-s	Muestra el status del demonio de dinaIP.
+

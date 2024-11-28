@@ -1,0 +1,17 @@
+# Use the Alpine Linux base image
+FROM alpine:latest
+
+# Install necessary packages.
+RUN apk update && apk add perl-libwww curl --no-cache && rm -rf /var/cache/apk/*
+COPY dinaIP-consola/ dinaIP-consola
+RUN cd dinaIP-consola && sh install.sh
+RUN rm -r dinaIP-consola
+
+# Define environment variables
+ENV ZONES=""
+ENV USERNAME=""
+
+# Service runnig with sh
+ENTRYPOINT ["/bin/sh", "-c"]
+CMD ["/usr/sbin/dinaip -u $USERNAME -p $(cat /run/secrets/dinaip_passwd) -a $ZONES; tail -f /var/log/dinaip.log"]
+
