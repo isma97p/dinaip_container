@@ -1,9 +1,6 @@
 services:
   dinaip:
     image: isma97p/dinaip
-    deploy:
-      mode: replicated
-      replicas: 1
     secrets:
       - dinaip_passwd
     environment:
